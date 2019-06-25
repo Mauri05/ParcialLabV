@@ -26,7 +26,7 @@ public class PublicationController {
         User user = userRepository.getOne(id);
         publication.setUser(user);
 
-        SimpleDateFormat format= new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat format= new SimpleDateFormat("dd-MMM-yyyy");
         Date date = new Date(System.currentTimeMillis());
         publication.setPublicationDate(format.format(date));
         publicationRepository.save(publication);

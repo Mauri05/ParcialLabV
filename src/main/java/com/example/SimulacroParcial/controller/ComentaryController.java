@@ -29,7 +29,7 @@ public class ComentaryController {
         comentary.setOwner(publication.getUser().getName().concat(" "+publication.getUser().getSurname()));
         comentary.setPublication(publication);
 
-        SimpleDateFormat format= new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat format= new SimpleDateFormat("dd-MMM-yyyy");
         Date date = new Date(System.currentTimeMillis());
         comentary.setDate(format.format(date));
         comentaryRepository.save(comentary);

@@ -16,7 +16,7 @@ import java.util.List;
 public class Publication {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String description;

@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class Comentary {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String description;
     private String date;

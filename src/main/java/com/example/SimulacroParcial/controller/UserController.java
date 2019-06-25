@@ -1,5 +1,7 @@
 package com.example.SimulacroParcial.controller;
 
+import com.example.SimulacroParcial.interfaces.PublicacionesXUsuario;
+import com.example.SimulacroParcial.interfaces.PublicacionesXUsuarioRepo;
 import com.example.SimulacroParcial.interfaces.UserRepository;
 import com.example.SimulacroParcial.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PublicacionesXUsuario publixUserRepo;
 
     @PostMapping("")
     public void addUser(@RequestBody User user, HttpServletRequest request){
@@ -43,6 +48,16 @@ public class UserController {
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable("id") Integer id){
         userRepository.deleteById(id);
+    }
+
+    @GetMapping("/nativeRepository")
+    public List<PublicacionesXUsuarioRepo> getPublicacionesPorUsuario(){
+        return userRepository.getPublicacionesPorUsuario();
+    }
+
+    @GetMapping("/nativeClass")
+    public List<PublicacionesXUsuarioRepo> getPublicacionesPorUsuarioClass(){
+        return userRepository.getPublicacionesPorUsuario();
     }
 
     private String getUserAgent(HttpServletRequest request) {
